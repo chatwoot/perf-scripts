@@ -5,7 +5,8 @@ const hostname = __ENV.HOSTNAME || "staging.chatwoot.com";
 const account_id = __ENV.ACCOUNT_ID || 1;
 
 export const options = {
-  iterations: 10, // run it 10 times, single VU
+  vus: 3,
+  iterations: 30,
   throw: true,
 };
 
