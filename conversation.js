@@ -5,8 +5,8 @@ const hostname = __ENV.HOSTNAME || "staging.chatwoot.com";
 const account_id = __ENV.ACCOUNT_ID || 1;
 
 export const options = {
-  vus: 3,
-  iterations: 30,
+  vus: 3, // https://k6.io/docs/using-k6/k6-options/reference/#vus
+  iterations: 90, // https://k6.io/docs/using-k6/k6-options/reference/#iterations
   throw: true,
 };
 
