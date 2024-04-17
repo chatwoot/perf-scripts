@@ -9,7 +9,7 @@ This is a repository of scripts used to test Chatwoot API. It uses [k6](https://
 1. Copy the `.env.example` file to `.env` and add the details
 1. Run `pnpm test scripts/conversation.js`
 
-## Changing parameters
+### Changing parameters
 
 These are the default options exported, which will run 90 iterations, shared over 3 virtual users. You can tweak this to run different scenarios
 
@@ -20,3 +20,16 @@ export const options = {
   throw: true,
 };
 ```
+
+## Running Rate limiter test
+
+> Do not test this on a production instance, as it can disrupt the normal working of the service
+
+1. Ensure Rack Attack is enabled on the instance
+1. Reset the limits before each test by running `Rack::Attack.reset!` on the rails console.
+1. Run `pnpm test scripts/rateLimit.sj`
+1. The output will run for each configured endpoint
+
+### Adding a new endpoint
+
+To add a new endpoint create a new file in `scripts/endpoints` directory, add this endpoint to `scripts/endpoints/index.js` and that is it. You can find the docs for configuring this [here](https://k6.io/docs/using-k6/k6-options/)
