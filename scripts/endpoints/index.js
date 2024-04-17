@@ -22,12 +22,24 @@ import {
   scenario as resetPasswordScenario,
 } from "./resetPassword.js";
 
+import {
+  endpoint as superAdminSignInEndpoint,
+  scenario as superAdminSignInScenario,
+} from "./superSignIn.js";
+
+import {
+  endpoint as signInEndpoint,
+  scenario as signInScenario,
+} from "./signIn.js";
+
 export const endpoints = [
   resendConfirmationEndpoint,
   contactSearchEndpoint,
   transcriptEndpoint,
   signupEndpoint,
   resetPasswordEndpoint,
+  superAdminSignInEndpoint,
+  signInEndpoint,
 ];
 
 export const scenarios = Object.assign(
@@ -37,5 +49,7 @@ export const scenarios = Object.assign(
   transcriptScenario,
   signupScenario,
   resendConfirmationScenario,
-  resetPasswordScenario
+  resetPasswordScenario,
+  superAdminSignInScenario,
+  signInScenario
 );
