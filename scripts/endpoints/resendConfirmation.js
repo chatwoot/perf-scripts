@@ -10,8 +10,8 @@ export const endpoint = {
 export const scenario = {
   [ENDPOINT_NAME]: {
     executor: "constant-vus",
-    vus: 1,
+    vus: 2,
     tags: { endpoint: ENDPOINT_NAME },
-    duration: "30s",
+    duration: "15s",
   },
 };

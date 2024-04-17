@@ -9,12 +9,9 @@ const hostname = __ENV.HOSTNAME || "staging.chatwoot.com";
 const accountId = __ENV.ACCOUNT_ID || 1;
 const apiAccessToken = __ENV.API_ACCESS_TOKEN;
 
-const RateLimit = new Rate("RateLimit");
 const StatusNon429 = new Counter("StatusNon429");
 
-const endpointLimits = {
-  RateLimit: ["rate<=0.3"],
-};
+const endpointLimits = {};
 endpoints.forEach((endpoint) => {
   endpointLimits[`StatusNon429{endpoint:${endpoint.name}}`] =
     endpoint.threshold;
@@ -39,8 +36,6 @@ function testEndpoint(endpoint, method, name, payload) {
   }
 
   const response = http[method](url, params);
-  console.log(name, response.status);
-  RateLimit.add(response.status !== 429, { endpoint: name });
   StatusNon429.add(response.status !== 429, { endpoint: name });
 }
 
