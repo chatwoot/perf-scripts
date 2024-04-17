@@ -12,15 +12,30 @@ import {
   scenario as transcriptScenario,
 } from "./transcript.js";
 
+import {
+  endpoint as signupEndpoint,
+  scenario as signupScenario,
+} from "./signup.js";
+
+import {
+  endpoint as resetPasswordEndpoint,
+  scenario as resetPasswordScenario,
+} from "./resetPassword.js";
+
 export const endpoints = [
   resendConfirmationEndpoint,
   contactSearchEndpoint,
   transcriptEndpoint,
+  signupEndpoint,
+  resetPasswordEndpoint,
 ];
 
 export const scenarios = Object.assign(
   {},
   resendConfirmationScenario,
   contactSearchScenario,
-  transcriptScenario
+  transcriptScenario,
+  signupScenario,
+  resendConfirmationScenario,
+  resetPasswordScenario
 );

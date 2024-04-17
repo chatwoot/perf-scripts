@@ -23,7 +23,9 @@ export const options = {
 };
 
 function testEndpoint(endpoint, method, name, payload) {
-  const url = `https://${hostname}/api/v1/${endpoint}`;
+  const url = endpoint.startsWith("https")
+    ? endpoint
+    : `https://${hostname}/api/v1/${endpoint}`;
   const params = {
     headers: {
       api_access_token: apiAccessToken,

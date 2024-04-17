@@ -5,7 +5,7 @@ export const endpoint = {
   path: `accounts/${__ENV.ACCOUNT_ID}/contacts/search`,
   method: "get",
   payload: { q: "test" },
-  threshold: ["count<=5"],
+  threshold: ["count<=10"],
 };
 
 export const scenario = {
@@ -13,6 +13,6 @@ export const scenario = {
     executor: "constant-vus",
     vus: 1,
     tags: { endpoint: ENDPOINT_NAME },
-    duration: "10s",
+    duration: "20s",
   },
 };
